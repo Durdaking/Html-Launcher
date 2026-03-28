@@ -1,3 +1,3 @@
 # Html-Launcher
 side project :3
-The link to pages is https://durdaking.github.io/Hitml-Launcher/
+The link to pages is https://durdaking.github.io/Html-Launcher/
