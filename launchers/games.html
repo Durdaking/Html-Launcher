@@ -1,8 +1,85 @@
 <!doctype html>
 <html>
 <head>
-  <title>Launcher</title>
+ 
+ <title>Html Launcher</title>
+ 
+ <style>
+    body {
+      font-family: 'Segoe UI', Verdana, sans-serif;
+      /* Smooth dark gradient background */
+      background: radial-gradient(circle, #2c3e50, #000000);
+      background-attachment: fixed;
+      color: white;
+      margin: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
+    /* body { background-image: url('mouse.jpg'); background-size: cover; } */
+
+    h1 {
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 150px);
+      gap: 20px;
+      justify-content: center;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .launcher {
+      width: 150px;
+      height: 150px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .launcher:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      border-color: #3498db;
+    }
+  </style>
+</head>
+
+<body>
+<h1>Launcher</h1>
+
+<div class="grid">
+  <div class="launcher" onclick="openGame('index.html')">Main file</div>
+</div>
+
+<script>
+function openGame(path) {
+  let newTab = window.open('about:blank', '_blank');
+  // Styling the iframe container to be fullscreen
+  newTab.document.write(`
+    <body style="margin:0; padding:0; overflow:hidden; background:#000;">
+      <iframe src="${path}" style="width:100vw; height:100vh; border:none;"></iframe>
+    </body>
+  `);
+}
+</script>
+</body>
   <style>
     body {
       font-family: 'Segoe UI', Verdana, sans-serif;
@@ -58,7 +135,6 @@
       border-color: #3498db;
     }
   </style>
-</head>
 
 <body>
 
@@ -85,10 +161,5 @@ function openGame(path) {
 }
 </script>
 </body>
-<body>
-<h1>This is a test :3</h1>
-<p> hola :3</p>
-<a href="index.html">
-    <button>Go to the home file</button>
-</a>
+
 </html>
