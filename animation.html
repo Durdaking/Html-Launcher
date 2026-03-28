@@ -65,19 +65,14 @@
 <h1>Launcher</h1>
 
 <div class="grid">
-  <div class="launcher" onclick="openGame('index.html')">Main Screen</div>
-   <div class="launcher" onclick="openGame('games.html')">Game Launcher</div>
+  <div class="launcher" onclick="openLauncher('index.html')">Main Screen</div>
+   <div class="launcher" onclick="openLauncher('games.html')">Game Launcher</div>
 </div>
 
+
 <script>
-function openGame(path) {
-  let newTab = window.open('about:blank', '_blank');
-  // Styling the iframe container to be fullscreen
-  newTab.document.write(`
-    <body style="margin:0; padding:0; overflow:hidden; background:#000;">
-      <iframe src="${path}" style="width:100vw; height:100vh; border:none;"></iframe>
-    </body>
-  `);
+function openLauncher(path) {
+  window.location.href = path;
 }
 </script>
 </body>
@@ -147,7 +142,13 @@ function openGame(path) {
 
 <script>
 function openGame(path) {
-  window.location.href = path;
+  let newTab = window.open('about:blank', '_blank');
+  // Styling the iframe container to be fullscreen
+  newTab.document.write(`
+    <body style="margin:0; padding:0; overflow:hidden; background:#000;">
+      <iframe src="${path}" style="width:100vw; height:100vh; border:none;"></iframe>
+    </body>
+  `);
 }
 </script>
 </body>
