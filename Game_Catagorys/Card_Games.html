@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+<head>
+ 
+ <title>Game Launcher</title>
+ <link rel="icon" type="image/png" href="assets/icon.png">
+ <style>
+    body {
+      font-family: 'Segoe UI', Verdana, sans-serif;
+      background: radial-gradient(circle, #2c3e50, #000000);
+      background-attachment: fixed;
+      color: white;
+      margin: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 150px);
+      gap: 20px;
+      justify-content: center;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .launcher {
+      width: 150px;
+      height: 150px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .launcher:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      border-color: #3498db;
+    }
+  </style>
+</head>
+
+<body>
+<h1>Launchers</h1>
+<div class="grid">
+    <div class="launcher" onclick="openLauncher('../games.html')">Back to main game selection</div>
+    <div class="launcher" onclick="openLauncher('../index.html')">Back to main screen</div>
+</div>
+
+<script>
+function openLauncher(path) {
+  window.location.href = path;
+}
+</script>
+</body>
+  <style>
+    body {
+      font-family: 'Segoe UI', Verdana, sans-serif;
+      background: radial-gradient(circle, #2c3e50, #000000);
+      background-attachment: fixed;
+      color: white;
+      margin: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 150px);
+      gap: 20px;
+      justify-content: center;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .game-box {
+      width: 150px;
+      height: 150px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .game-box:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      border-color: #3498db;
+    }
+
+    .toggle-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 30px;
+      padding: 8px 20px;
+    }
+
+    .toggle-bar span {
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 52px;
+      height: 26px;
+      cursor: pointer;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #555;
+      border-radius: 26px;
+      transition: 0.3s;
+    }
+
+    .slider:before {
+      content: "";
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    input:checked + .slider {
+      background-color: #3498db;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    #iframe-container {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    #game-iframe {
+      width: 100%;
+      height: 600px;
+      border: 3px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      background: #000;
+    }
+
+    .iframe-controls {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .iframe-btn {
+      padding: 9px 22px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-fullscreen {
+      background-color: #3498db;
+      color: white;
+    }
+
+    .btn-fullscreen:hover {
+      background-color: #2980b9;
+    }
+
+    .btn-close {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    .btn-close:hover {
+      background-color: #c0392b;
+    }
+  </style>
+
+<body>
+
+<h1>Game Launcher</h1>
+
+<div class="toggle-bar">
+  <span>New Tab</span>
+  <label class="toggle-switch">
+    <input type="checkbox" id="mode-toggle">
+    <span class="slider"></span>
+  </label>
+  <span>iFrame</span>
+</div>
+
+<div class="grid">
+  <div class="game-box" onclick="openGame('Games/Card_Games/Balatro-JS/main.html')">Balatro-JS</div>
+</div>
+
+<div id="iframe-container">
+  <iframe id="game-iframe" src="" allowfullscreen></iframe>
+  <div class="iframe-controls">
+    <button class="iframe-btn btn-fullscreen" onclick="fullscreenIframe()">⛶ Fullscreen</button>
+    <button class="iframe-btn btn-close" onclick="closeIframe()">✕ Close</button>
+  </div>
+</div>
+
+<script>
+function openGame(path) {
+  const useIframe = document.getElementById('mode-toggle').checked;
+  if (useIframe) {
+    const container = document.getElementById('iframe-container');
+    const iframe = document.getElementById('game-iframe');
+    iframe.src = path;
+    container.style.display = 'flex';
+    container.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    window.open(path, '_blank');
+  }
+}
+
+function fullscreenIframe() {
+  const iframe = document.getElementById('game-iframe');
+  if (iframe.requestFullscreen) iframe.requestFullscreen();
+  else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
+  else if (iframe.mozRequestFullScreen) iframe.mozRequestFullScreen();
+}
+
+function closeIframe() {
+  const container = document.getElementById('iframe-container');
+  const iframe = document.getElementById('game-iframe');
+  iframe.src = '';
+  container.style.display = 'none';
+}
+</script>
+</body>
+</html>
